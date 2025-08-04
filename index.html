@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🥔 Patates Memes</title>
+  <style>
+    body {
+      background-color: #fffbe6;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding: 40px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    img {
+      width: 300px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 24px;
+      background-color: #ffcf40;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #f9b400;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🥔 Patates Memes</h1>
+    <img id="potato-gif" src="https://media.giphy.com/media/3orieZ3D7J0F0N9D3y/giphy.gif" alt="Dancing Potato" />
+    <p id="meme-text">Tıkla ve patatesin içinden çıkan gerçeği gör.</p>
+    <button onclick="generateMeme()">Yeni Meme!</button>
+  </div>
+
+  <script>
+    const memeTexts = [
+      "Bu patates senden daha çok dans ediyor.",
+      "Kızarmış ama duygusal.",
+      "Neden patates? Çünkü brokoli cool değil.",
+      "Hayat kısa, patates ol!",
+      "Bir patates bile bu kadar cool olabilirken sen neden olmayasın?",
+      "Stajyerken bile kızartıldım :("
+    ];
+
+    const gifLinks = [
+      "https://media.giphy.com/media/3orieZ3D7J0F0N9D3y/giphy.gif",
+      "https://media.giphy.com/media/WXB88TeARFVvi/giphy.gif",
+      "https://media.giphy.com/media/l3vQZ4GkOZTn6NpCo/giphy.gif",
+      "https://media.giphy.com/media/fe4dDMD2cAU5RfEaCU/giphy.gif",
+      "https://media.giphy.com/media/1msMsmgLNhf8a/giphy.gif"
+    ];
+
+    function generateMeme() {
+      const randomText = memeTexts[Math.floor(Math.random() * memeTexts.length)];
+      const randomGif = gifLinks[Math.floor(Math.random() * gifLinks.length)];
+
+      document.getElementById("meme-text").textContent = randomText;
+      document.getElementById("potato-gif").src = randomGif;
+    }
+  </script>
+</body>
+</html>
