@@ -1,63 +1,103 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🥔 Patates Memes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🥔 Patates Modu</title>
   <style>
-    body {
-      background-color: #fffbe6;
-      font-family: 'Comic Sans MS', cursive;
-      text-align: center;
-      padding: 40px;
-      color: #333;
+    :root {
+      --bg: #fefae0;
+      --text: #463f3a;
+      --accent: #ffb703;
+      --button: #fb8500;
     }
 
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: 'Arial Rounded MT Bold', 'Comic Sans MS', sans-serif;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 1em;
     }
 
     img {
-      width: 300px;
-      border-radius: 20px;
-      margin-bottom: 20px;
+      width: 250px;
+      max-width: 90%;
+      border-radius: 1em;
+      transition: transform 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    #meme-text {
+      margin: 1em 0;
+      font-size: 1.1em;
+      line-height: 1.5;
+      font-style: italic;
     }
 
     button {
-      padding: 12px 24px;
-      background-color: #ffcf40;
+      background: var(--button);
+      color: white;
       border: none;
-      border-radius: 8px;
-      font-size: 18px;
+      border-radius: 0.5em;
+      padding: 12px 24px;
+      font-size: 1em;
       cursor: pointer;
-      transition: 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: background 0.3s ease;
     }
 
     button:hover {
-      background-color: #f9b400;
+      background: var(--accent);
+    }
+
+    footer {
+      margin-top: 2em;
+      font-size: 0.8em;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🥔 Patates Memes</h1>
-    <img id="potato-gif" src="https://media.giphy.com/media/3orieZ3D7J0F0N9D3y/giphy.gif" alt="Dancing Potato" />
-    <p id="meme-text">Tıkla ve patatesin içinden çıkan gerçeği gör.</p>
-    <button onclick="generateMeme()">Yeni Meme!</button>
-  </div>
+  <h1>🥔 Patates Modu Aktif</h1>
+  <img id="potato-gif" src="https://media.giphy.com/media/3orieZ3D7J0F0N9D3y/giphy.gif" alt="Dans Eden Patates">
+  <p id="meme-text">Tıkla, patates ruhunu göstersin.</p>
+  <button onclick="generateMeme()">Yeni Patates Sözü</button>
+
+  <footer>
+    made with 🥔 by sen
+  </footer>
 
   <script>
-    const memeTexts = [
-      "Bu patates senden daha çok dans ediyor.",
-      "Kızarmış ama duygusal.",
-      "Neden patates? Çünkü brokoli cool değil.",
-      "Hayat kısa, patates ol!",
-      "Bir patates bile bu kadar cool olabilirken sen neden olmayasın?",
-      "Stajyerken bile kızartıldım :("
+    const texts = [
+      "Kızartılmaya razıyım, yeter ki seninle olayım.",
+      "Patatesim ama duygularım gerçek.",
+      "Dibi tutmuş kalbimle geldim.",
+      "Tuzsuzum ama samimiyim.",
+      "Fırına değil sana düştüm.",
+      "Yağda değil, aşkta kızardım."
     ];
 
-    const gifLinks = [
+    const gifs = [
       "https://media.giphy.com/media/3orieZ3D7J0F0N9D3y/giphy.gif",
       "https://media.giphy.com/media/WXB88TeARFVvi/giphy.gif",
       "https://media.giphy.com/media/l3vQZ4GkOZTn6NpCo/giphy.gif",
@@ -66,11 +106,11 @@
     ];
 
     function generateMeme() {
-      const randomText = memeTexts[Math.floor(Math.random() * memeTexts.length)];
-      const randomGif = gifLinks[Math.floor(Math.random() * gifLinks.length)];
+      const gif = gifs[Math.floor(Math.random() * gifs.length)];
+      const text = texts[Math.floor(Math.random() * texts.length)];
 
-      document.getElementById("meme-text").textContent = randomText;
-      document.getElementById("potato-gif").src = randomGif;
+      document.getElementById("potato-gif").src = gif;
+      document.getElementById("meme-text").textContent = text;
     }
   </script>
 </body>
