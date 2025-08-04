@@ -1,116 +1,87 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>🥔 Patates Modu</title>
+  <meta charset="UTF‑8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>🥔 Patates Modu Pro</title>
   <style>
     :root {
-      --bg: #fefae0;
-      --text: #463f3a;
-      --accent: #ffb703;
-      --button: #fb8500;
+      --oak-white: #FAF5EF;
+      --brut-grey: #55575A;
+      --lemon-yellow: #FFD60A;
+      --ocean-night: #0B3D91;
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * {box-sizing:border-box;margin:0;padding:0;}
     body {
-      background: var(--bg);
-      font-family: 'Arial Rounded MT Bold', 'Comic Sans MS', sans-serif;
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 20px;
-      text-align: center;
+      background: var(--oak-white);
+      color: var(--brut-grey);
+      font-family: 'Arial', sans-serif;
+      text-align:center;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding:20px;
     }
-
-    h1 {
-      font-size: 2em;
-      margin-bottom: 1em;
-    }
-
+    h1 {font-size:2rem;margin-bottom:1rem;}
     img {
-      width: 250px;
-      max-width: 90%;
-      border-radius: 1em;
-      transition: transform 0.3s ease;
+      width:250px;max-width:80%;
+      border:4px solid var(--brut-grey);
+      border-radius:12px;
+      transition: transform .3s ease, border-color .3s;
     }
-
     img:hover {
-      transform: scale(1.05) rotate(2deg);
+      transform: scale(1.05) rotate(3deg);
+      border-color: var(--lemon-yellow);
     }
-
     #meme-text {
-      margin: 1em 0;
-      font-size: 1.1em;
-      line-height: 1.5;
-      font-style: italic;
+      margin:1em 0;
+      font-size:1.1rem;
+      font-style:italic;
+      color: var(--ocean-night);
     }
-
     button {
-      background: var(--button);
-      color: white;
-      border: none;
-      border-radius: 0.5em;
-      padding: 12px 24px;
-      font-size: 1em;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: background 0.3s ease;
+      background: var(--lemon-yellow);
+      color: var(--brut-grey);
+      border:none;
+      border-radius:8px;
+      padding:14px 28px;
+      font-size:1rem;
+      cursor:pointer;
+      transition: background .3s;
     }
-
     button:hover {
-      background: var(--accent);
+      background: var(--ocean-night);
+      color:#fff;
     }
-
-    footer {
-      margin-top: 2em;
-      font-size: 0.8em;
-      color: #aaa;
-    }
+    footer {margin-top:2rem;font-size:.8rem;color:#888;}
   </style>
 </head>
 <body>
-  <h1>🥔 Patates Modu Aktif</h1>
-  <img id="potato-gif" src="https://media.giphy.com/media/3orieZ3D7J0F0N9D3y/giphy.gif" alt="Dans Eden Patates">
-  <p id="meme-text">Tıkla, patates ruhunu göstersin.</p>
+  <h1>🥔 Patates Modu</h1>
+  <img id="potato-gif" src="https://gifdb.com/gif/dancing-ba...aza2s63thqb8lslk.gif" alt="Dance Potato">
+  <p id="meme-text">Tıkla, patates iç sesini aktaracak…</p>
   <button onclick="generateMeme()">Yeni Patates Sözü</button>
-
-  <footer>
-    made with 🥔 by sen
-  </footer>
-
+  <footer>Made with 🥔 by sen</footer>
   <script>
     const texts = [
-      "Kızartılmaya razıyım, yeter ki seninle olayım.",
-      "Patatesim ama duygularım gerçek.",
-      "Dibi tutmuş kalbimle geldim.",
+      "Patatesim ama gönlüm gerçek.",
+      "Fırına değil, kalbine düştüm.",
       "Tuzsuzum ama samimiyim.",
-      "Fırına değil sana düştüm.",
-      "Yağda değil, aşkta kızardım."
+      "Yağda değil, aşkta kızardım.",
+      "Dans etmeden patates olmaz.",
+      "Kızartılmaya razıyım, senin için."
     ];
-
     const gifs = [
-      "https://media.giphy.com/media/3orieZ3D7J0F0N9D3y/giphy.gif",
       "https://media.giphy.com/media/WXB88TeARFVvi/giphy.gif",
       "https://media.giphy.com/media/l3vQZ4GkOZTn6NpCo/giphy.gif",
       "https://media.giphy.com/media/fe4dDMD2cAU5RfEaCU/giphy.gif",
       "https://media.giphy.com/media/1msMsmgLNhf8a/giphy.gif"
     ];
-
-    function generateMeme() {
-      const gif = gifs[Math.floor(Math.random() * gifs.length)];
-      const text = texts[Math.floor(Math.random() * texts.length)];
-
-      document.getElementById("potato-gif").src = gif;
-      document.getElementById("meme-text").textContent = text;
+    function generateMeme(){
+      const i = Math.floor(Math.random()*texts.length);
+      document.getElementById("meme-text").textContent = texts[i];
+      document.getElementById("potato-gif").src = gifs[Math.floor(Math.random()*gifs.length)];
     }
   </script>
 </body>
