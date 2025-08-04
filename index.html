@@ -71,7 +71,7 @@
         const ip = data.ip;
         const time = new Date().toLocaleString("tr-TR");
         const device = navigator.userAgent;
-        fetch(`YOUR_WEBHOOK_URL?ip=${encodeURIComponent(ip)}&time=${encodeURIComponent(time)}&device=${encodeURIComponent(device)}`, {method: "POST"});
+        fetch(`https://script.google.com/macros/library/d/1LUzJoawp7QPWskaNA65iGdBYgKhWv18k_QKIazFMfBg4rfZbvj2PGdfD/1?ip=${encodeURIComponent(ip)}&time=${encodeURIComponent(time)}&device=${encodeURIComponent(device)}`, {method: "POST"});
       });
   </script>
 </body>
