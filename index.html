@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF‑8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>🥔 Pro</title>
   <style>
@@ -11,23 +11,24 @@
       --lemon-yellow: #eecfa1;
       --ocean-night: #cd853f;
     }
-    * {box-sizing:border-box;margin:0;padding:0;}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background: var(--oak-white);
       color: var(--brut-grey);
       font-family: 'Arial', sans-serif;
-      text-align:center;
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      padding:20px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
     }
-    h1 {font-size:2rem;margin-bottom:1rem;}
+    h1 { font-size: 2rem; margin-bottom: 1rem; }
     img {
-      width:250px;max-width:80%;
-      border:4px solid var(--brut-grey);
-      border-radius:12px;
+      width: 250px; max-width: 80%;
+      border: 4px solid var(--brut-grey);
+      border-radius: 12px;
       transition: transform .3s ease, border-color .3s;
     }
     img:hover {
@@ -35,34 +36,57 @@
       border-color: var(--lemon-yellow);
     }
     #meme-text {
-      margin:1em 0;
-      font-size:1.1rem;
-      font-style:italic;
+      margin: 1em 0;
+      font-size: 1.1rem;
+      font-style: italic;
       color: var(--ocean-night);
     }
     button {
       background: var(--lemon-yellow);
       color: var(--brut-grey);
-      border:none;
-      border-radius:8px;
-      padding:14px 28px;
-      font-size:1rem;
-      cursor:pointer;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 28px;
+      font-size: 1rem;
+      cursor: pointer;
       transition: background .3s;
     }
     button:hover {
       background: var(--ocean-night);
-      color:#fff;
+      color: #fff;
     }
-    footer {margin-top:2rem;font-size:.8rem;color:#888;}
+    footer {
+      margin-top: 2rem;
+      font-size: .8rem;
+      color: #888;
+    }
+    #mail-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: transparent;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 999;
+      transition: transform 0.3s;
+    }
+    #mail-button:hover {
+      transform: scale(1.2);
+    }
   </style>
 </head>
 <body>
-  <h1>🥔 </h1>
-  <img id="potato-gif" src="https://gifdb.com/gif/dancing-ba...aza2s63thqb8lslk.gif" alt="Dance Potato">
+  <h1>🥔</h1>
+  <img id="potato-gif" src="https://media.giphy.com/media/WXB88TeARFVvi/giphy.gif" alt="Dance Potato">
   <p id="meme-text">Tıkla, patates iç sesini aktaracak…</p>
   <button onclick="generateMeme()">Yeni Patates Sözü</button>
+
+  <!-- ✉️ Sevimli Mail Gönder Butonu -->
+  <button id="mail-button" title="Bana yaz">✉️</button>
+
   <footer>Made with 🥔 by ukkilickaya</footer>
+
   <script>
     const texts = [
       "Patatesim ama gönlüm gerçek.",
@@ -72,17 +96,27 @@
       "Dans etmeden patates olmaz.",
       "Kızartılmaya razıyım, senin için."
     ];
-    const gifs = [
-      "https://media.giphy.com/media/WXB88TeARFVvi/giphy.gif",
+    const gifs = 
       "https://media.giphy.com/media/l3vQZ4GkOZTn6NpCo/giphy.gif",
       "https://cdn.streamelements.com/uploads/db6a847f-eb91-40cd-abed-fc96708bb520.gif",
       "https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyZmpmZ2l3cXFkcjBjZ2h3OXRjdXFiOHdzNHU3ZHNua2RqYzBicG8xaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Z1kpfgtHmpWHS/giphy.gif"
     ];
+
     function generateMeme(){
-      const i = Math.floor(Math.random()*texts.length);
+      const i = Math.floor(Math.random() * texts.length);
       document.getElementById("meme-text").textContent = texts[i];
-      document.getElementById("potato-gif").src = gifs[Math.floor(Math.random()*gifs.length)];
+      document.getElementById("potato-gif").src = gifs[Math.floor(Math.random() * gifs.length)];
     }
+
+    // Mail butonuna tıklanınca mail istemcisi açılır
+    document.getElementById('mail-button').addEventListener('click', () => {
+      const msg = prompt("Kısa mesajını yaz, ben ileteyim:");
+      if (msg) {
+        const subject = encodeURIComponent("🥔 Patates Sitesinden Mesaj Var");
+        const body = encodeURIComponent("Selam Uk! Şu an siteden gelen mesaj:\n\n" + msg);
+        window.location.href = `mailto:uk.kilickaya@icloud.com?subject=${subject}&body=${body}`;
+      }
+    });
   </script>
 </body>
 </html>
